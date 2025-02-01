@@ -5,12 +5,12 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-PATH = "C:\Program Files (x86)\chromedriver.exe"
+PATH = "/usr/bin/chromedriver"  # Update the path to the correct location of chromedriver on your system
 driver = webdriver.Chrome(PATH)
 
 driver.get("https://www.techwithtim.net/")
 
-link = driver.find_element_by_link_text("Python Programming")
+link = driver.find_element(By.LINK_TEXT, "Python Programming")
 link.click()
 
 try:
@@ -43,5 +43,5 @@ try:
 
     driver.forward()
 
-except:
+finally:
     driver.quit()
